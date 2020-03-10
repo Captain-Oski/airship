@@ -403,6 +403,12 @@ export namespace Components {
     'heading': string;
     'loading': boolean;
   }
+  interface AsLegendBivariate {
+    'colors': LegendData[];
+    'labelX': string;
+    'labelY': string;
+    'numQuantiles': number;
+  }
   interface AsLegendCategory {
     'data': LegendData[];
     'orientation': 'horizontal' | 'vertical';
@@ -1054,6 +1060,12 @@ declare global {
     new (): HTMLAsLegendElement;
   };
 
+  interface HTMLAsLegendBivariateElement extends Components.AsLegendBivariate, HTMLStencilElement {}
+  var HTMLAsLegendBivariateElement: {
+    prototype: HTMLAsLegendBivariateElement;
+    new (): HTMLAsLegendBivariateElement;
+  };
+
   interface HTMLAsLegendCategoryElement extends Components.AsLegendCategory, HTMLStencilElement {}
   var HTMLAsLegendCategoryElement: {
     prototype: HTMLAsLegendCategoryElement;
@@ -1322,6 +1334,7 @@ declare global {
     'as-layer-selector': HTMLAsLayerSelectorElement;
     'as-layer-selector-slot': HTMLAsLayerSelectorSlotElement;
     'as-legend': HTMLAsLegendElement;
+    'as-legend-bivariate': HTMLAsLegendBivariateElement;
     'as-legend-category': HTMLAsLegendCategoryElement;
     'as-legend-category-line-entry': HTMLAsLegendCategoryLineEntryElement;
     'as-legend-category-point-entry': HTMLAsLegendCategoryPointEntryElement;
@@ -1725,6 +1738,12 @@ declare namespace LocalJSX {
     'description'?: string;
     'heading'?: string;
     'loading'?: boolean;
+  }
+  interface AsLegendBivariate extends JSXBase.HTMLAttributes<HTMLAsLegendBivariateElement> {
+    'colors'?: LegendData[];
+    'labelX'?: string;
+    'labelY'?: string;
+    'numQuantiles'?: number;
   }
   interface AsLegendCategory extends JSXBase.HTMLAttributes<HTMLAsLegendCategoryElement> {
     'data'?: LegendData[];
@@ -2337,6 +2356,7 @@ declare namespace LocalJSX {
     'as-layer-selector': AsLayerSelector;
     'as-layer-selector-slot': AsLayerSelectorSlot;
     'as-legend': AsLegend;
+    'as-legend-bivariate': AsLegendBivariate;
     'as-legend-category': AsLegendCategory;
     'as-legend-category-line-entry': AsLegendCategoryLineEntry;
     'as-legend-category-point-entry': AsLegendCategoryPointEntry;
